@@ -1,4 +1,4 @@
-## Moo E2E tests
+## Protractor Cucumber Demo
 
 These selenium tests are written using protractor along with cucumber. Cucumber allows stakeholders like Product Owners, Business analysts to describe test scenarios
 in plain English.
