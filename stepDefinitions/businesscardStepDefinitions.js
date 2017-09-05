@@ -7,7 +7,7 @@ const BusinessCardPage = require('../pageObjects/pageMethods/businessCardPage.js
 
 
 defineSupportCode(function({Given,When,Then,setDefaultTimeout}){
-  setDefaultTimeout(10*1000);
+  setDefaultTimeout(15*1000);
 
   When('I navigate to {stringInDoubleQuotes}', function (productPage) {
     return assert.eventually.equal(BusinessCardPage.isProductPageLoaded(productPage),true,"Failed to load page");

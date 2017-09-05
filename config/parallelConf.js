@@ -11,7 +11,9 @@ exports.config = {
           'password_manager_enabled': false
         }
       }
-    }
+    },
+    shardTestFiles: true,
+    maxInstances: 2
   },
   beforeLaunch: function() {
     // Creating the directory for the reports
@@ -50,8 +52,8 @@ exports.config = {
 
 
   },
-  /* This is to allow  protractor to prevent it from from aborting test execution when the test throws
-   exceptions it cannot handle
+  /* This is to allow protractor to prevent protractor from aborting test execution when it
+  encounters exceptions
   */
   ignoreUncaughtExceptions: true,
   cucumberOpts: {
@@ -68,7 +70,7 @@ exports.config = {
         jsonDir:'jsonReports',
         output:'./htmlReports/cucumberReport.html',
         ignoreBadJsonFile:true,
-        name:'ProtractorCucumberDemo'
+        name:'Protractorcucumberparalleldemo'
       };
       reporter.generate(reportingOptions);
     };

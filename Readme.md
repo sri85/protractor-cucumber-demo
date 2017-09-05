@@ -35,5 +35,8 @@ Alternatively if you don't want to run the tests in a local chrome browser or yo
 
 Now run `docker-compose up -d`, this should spin up a docker selenium grid with one chrome node.
 
+If you are impatient and would like to speed up the test execution increase the chrome nodes by
+`docker-compose scale chromenode=2` and then run `npm run paralleltest`
+
 ### FootNotes:
 All the above commands have been tested on OsX, have not really checked that these work on other platforms.(Linux should be fine , Windows not really sure)

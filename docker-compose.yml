@@ -3,7 +3,7 @@ selenium-hub:
   ports:
     - "4444:4444"
 
-chrome:
+chromenode:
     image: selenium/node-chrome
     links:
       - selenium-hub:hub

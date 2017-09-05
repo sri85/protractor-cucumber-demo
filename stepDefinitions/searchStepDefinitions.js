@@ -7,7 +7,7 @@ const searchPage = require('../pageObjects/pageMethods/searchPage.js');
 
 
 defineSupportCode(function({Given,When,Then,setDefaultTimeout}){
-  setDefaultTimeout(10*1000);
+  setDefaultTimeout(15*1000);
 
   Given('I am on Moo homepage', function () {
          return assert.eventually.equal(homePage.isPageLoaded(),true,"Failed to load the home page");
