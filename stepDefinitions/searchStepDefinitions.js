@@ -14,11 +14,11 @@ defineSupportCode(function({Given,When,Then,setDefaultTimeout}){
   });
 
   When('I search for {stringInDoubleQuotes}', function (searchQuery) {
-        return assert.eventually.equal(homePage.enterSearchQuery(searchQuery),false,"Failed to enter search query");
+        return assert.eventually.equal(homePage.enterSearchQuery(searchQuery),true,"Failed to enter search query");
   });
 
   Then('I should see matching results for {stringInDoubleQuotes}', function (el) {
-        return assert.eventually.equal(searchPage.isSearchResultsDisplayed(),false,"Search results not displayed.");
+        return assert.eventually.equal(searchPage.isSearchResultsDisplayed(),true,"Search results not displayed.");
   });
 
   Then('I should see a user friendly message for {stringInDoubleQuotes}', function (stringInDoubleQuotes) {

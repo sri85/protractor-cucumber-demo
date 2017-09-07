@@ -11,6 +11,8 @@ The html reports can be found under htmlReports directory.
 
 2. Ability to capture screenshots on failure which are later attached to the report.
 
+3. Sends message to slack on completion of test execution.
+
 
 ## Instructions for running tests
 

@@ -32,6 +32,14 @@ exports.config = {
     // Time to wait for selenium explicit waits
     waits:{
       ecWaitTime:5000
+    },
+    failedScenarios:[],
+    slackConfig:{
+      /* Please create a webhook in slack and paste the URL as a value for webhookUrl
+      If you don't know here is the link https://api.slack.com/incoming-webhooks
+      */
+      webhookUrl:undefined,
+      channel:"#general"
     }
   },
 
@@ -79,6 +87,36 @@ exports.config = {
     catch(error){
       console.log("Error in generating reports ",error);
     }
-    console.log("All tests completed");
+    let slackMessage = "";
+    if ((browser.params.failedScenarios.length) >0) {
+      slackMessage = "Tests failed , Failed scenarios "+(browser.params.failedScenarios.toString());
+
+    }
+    else {
+      slackMessage = "E2E Tests passed succesfully,go have a chocolate";
+    }
+    const rp = require('request-promise');
+    var options = {
+       uri : browser.params.slackConfig.webhookUrl,
+       method: 'POST',
+       body: {
+            'attachments': [{
+                'title': "E2E Test",
+                'text':slackMessage
+            }]
+
+        },
+       channel: browser.params.slackConfig.channel,
+       icon_emoji:":ghost:",
+       mrkdwn: true,
+       json:true
+   };
+   return rp(options)
+        .then(function(res) {
+          console.log("Notified via slack on ",browser.params.slackConfig.channel);
+        })
+        .catch(function(err) {
+            console.log("Failed to send slack message ",err.message);
+        });
   }
 };
